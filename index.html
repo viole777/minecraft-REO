@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mundo de Blocos — jogo voxel no navegador</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="gl"></canvas>
+
+<!-- ===== HUD ===== -->
+<div id="hud">
+  <div id="underwater"></div>
+  <div id="crosshair"><span></span><span></span></div>
+  <div id="hotbar"></div>
+  <div id="item-name"></div>
+  <div id="hand"><img id="held" alt="" draggable="false"><img id="arm" alt="" draggable="false"></div>
+  <div id="hint"></div>
+  <pre id="debug"></pre>
+</div>
+
+<!-- ===== Carregando ===== -->
+<div id="loading" class="screen visible">
+  <div class="load-box">
+    <div class="logo small">MUNDO DE BLOCOS</div>
+    <div id="load-text">Preparando o terreno…</div>
+    <div class="bar"><div id="load-bar"></div></div>
+  </div>
+</div>
+
+<!-- ===== Menu principal ===== -->
+<div id="menu" class="screen">
+  <div class="logo">MUNDO DE BLOCOS<span id="splash"></span></div>
+  <div class="menu-btns">
+    <button id="btn-play" class="mc-btn">Um Jogador</button>
+    <button id="btn-new" class="mc-btn">Novo Mundo</button>
+    <div class="row">
+      <button id="btn-menu-options" class="mc-btn half">Opções...</button>
+      <button id="btn-about" class="mc-btn half">Sobre...</button>
+    </div>
+  </div>
+  <div class="foot left">Mundo de Blocos 1.0 (web)</div>
+  <div class="foot right">Reconstrução autoral para fins educacionais</div>
+</div>
+
+<!-- ===== Pausa ===== -->
+<div id="pause" class="screen overlay">
+  <div class="panel narrow">
+    <h2>Jogo Pausado</h2>
+    <button id="btn-resume" class="mc-btn">Voltar ao Jogo</button>
+    <button id="btn-pause-options" class="mc-btn">Opções...</button>
+    <button id="btn-quit" class="mc-btn">Salvar e Sair para o Menu</button>
+    <p class="keys">WASD mover · Espaço pular · Ctrl correr · Shift agachar<br>
+    BDM quebrar · BEM colocar · Botão do meio copiar · 1-9/roda hotbar<br>
+    E inventário · Duplo Espaço voar · F3 debug</p>
+  </div>
+</div>
+
+<!-- ===== Inventário ===== -->
+<div id="inventory" class="screen overlay">
+  <div class="panel inv">
+    <div class="inv-head">
+      <h2>Blocos</h2>
+      <button id="inv-close" class="mc-btn tiny">Fechar (E)</button>
+    </div>
+    <input id="inv-search" type="text" placeholder="Buscar" autocomplete="off" spellcheck="false">
+    <div id="inv-grid"></div>
+    <div class="inv-label">Barra rápida (clique num slot e depois num bloco):</div>
+    <div id="inv-hotbar"></div>
+  </div>
+</div>
+
+<!-- ===== Opções ===== -->
+<div id="options" class="screen overlay">
+  <div class="panel narrow">
+    <h2>Opções</h2>
+    <label class="opt-row">Campo de visão: <span id="fov-val">70</span>
+      <input id="opt-fov" type="range" min="50" max="110" step="1" value="70"></label>
+    <label class="opt-row">Sensibilidade: <span id="sens-val">100</span>%
+      <input id="opt-sens" type="range" min="30" max="250" step="5" value="100"></label>
+    <label class="opt-row">Distância de renderização: <span id="dist-val">6</span> chunks
+      <input id="opt-dist" type="range" min="3" max="10" step="1" value="6"></label>
+    <label class="opt-row check"><input id="opt-mute" type="checkbox"> Sem som</label>
+    <button id="btn-options-back" class="mc-btn">Concluído</button>
+  </div>
+</div>
+
+<!-- ===== Sobre ===== -->
+<div id="about" class="screen overlay">
+  <div class="panel narrow">
+    <h2>Sobre</h2>
+    <p><strong>Mundo de Blocos</strong> é uma reconstrução autorail do gênero sandbox de voxels,
+    feita por engenharia reversa do <em>comportamento</em> observável (e não do código original):
+    mundo gerado proceduralmente, quebrar/colocar blocos, hotbar, inventário com busca, física e animais.</p>
+    <p>Todo o conteúdo — código, texturas e sons — foi gerado do zero para este projeto.
+    Não há assets, código ou texturas de terceiros; não afiliado à Mojang/Microsoft.</p>
+    <button id="btn-about-back" class="mc-btn">Voltar</button>
+  </div>
+</div>
+
+<div id="boot-error"></div>
+
+<script src="lib/three.min.js"></script>
+<script src="js/noise.js"></script>
+<script src="js/blocks.js"></script>
+<script src="js/textures.js"></script>
+<script src="js/world.js"></script>
+<script src="js/mesher.js"></script>
+<script src="js/player.js"></script>
+<script src="js/sound.js"></script>
+<script src="js/mobs.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
