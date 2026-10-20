@@ -1,5 +1,9 @@
 # Mundo de Blocos
 
+[![Deploy to GitHub Pages](https://github.com/viole777/minecraft-REO/actions/workflows/pages.yml/badge.svg)](https://github.com/viole777/minecraft-REO/actions/workflows/pages.yml)
+
+**Jogue online:** [Mundo de Blocos](https://viole777.github.io/minecraft-REO/)
+
 Reconstrução **autorail** do gênero sandbox de voxels (inspirada no comportamento observável
 do Minecraft, sem usar código, texturas ou assets de terceiros), feita para rodar
 **no navegador, offline, no seu computador**.
